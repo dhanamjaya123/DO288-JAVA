@@ -5,7 +5,7 @@ FROM openjdk:11-slim as build
 MAINTAINER ibmdemo.com
 
 # Add the application's jar to the container
-COPY  /home/student/DO288-JAVA/target/openshift-microservice-0.0.1-SNAPSHOT.jar openshift-microservice-0.0.1-SNAPSHOT.jar
+COPY  ./target/openshift-microservice-0.0.1-SNAPSHOT.jar openshift-microservice-0.0.1-SNAPSHOT.jar
 
 #execute the application
 ENTRYPOINT ["java","-jar","/openshift-microservice-SNAPSHOT.jar"]
