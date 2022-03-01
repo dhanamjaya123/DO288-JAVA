@@ -1,1 +1,1 @@
-# DO288-JAVA
+# DO288-apps
