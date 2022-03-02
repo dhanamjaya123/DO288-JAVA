@@ -1,9 +1,10 @@
 FROM openjdk:11-slim as build
 EXPOSE 8082
-
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+ONBUILD ADD . /usr/src/app
 ONBUILD RUN mvn install
-ONBUILD ADD /target/openshift-microservice-0.0.1-SNAPSHOT.jar openshift-microservice-0.0.1-SNAPSHOT.jar
-RUN chgrp -R 0 target && \ chmod -R g=u /target
+ONBUILD ADD /usr/src/app/target/openshift-microservice-0.0.1-SNAPSHOT.jar openshift-microservice-0.0.1-SNAPSHOT.jar
 
 CMD ["java","-jar","/openshift-microservice-0.0.1-SNAPSHOT.jar"]
 
