@@ -5,8 +5,6 @@ EXPOSE 8012
 # Define environment variable
 ENV NAME tes
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
 ONBUILD ADD . /usr/src/app
 ONBUILD RUN mvn install
 ONBUILD ADD /usr/src/app/target/openshift-microservice-0.0.1-SNAPSHOT.jar tes.jar
