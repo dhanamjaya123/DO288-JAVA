@@ -7,9 +7,8 @@ RUN chgrp -R 0 /usr/src/app && \
     chmod -R g=u /usr/src/
 ONBUILD ADD . /usr/src/app
 ONBUILD RUN mvn install
-ONBUILD ADD /usr/src/app/target/openshift-microservice-0.0.1-SNAPSHOT.jar openshift-microservice-0.0.1-SNAPSHOT.jar
-ONBUILD RUN mvn clean install
+ONBUILD ADD /usr/src/app/target/openshift-microservice-0.0.1-SNAPSHOT.jar app.jar
 
-CMD ["java","-jar","/openshift-microservice-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-jar","/app.jar"]
 
 
